@@ -42,6 +42,13 @@ Por ejemplo, la función (==) es una variable de tipo, pero su clase es Eq ya qu
 
 Si a == b, entonces a y b deben ser del mismo tipo, ej: no puede ser un Int y un Bool.
 
+* El símbolo =>: Cualquier cosa antes del símbolo => es una restricción de clase.
+
+```bash
+    ghci> :t (==)
+    (==) :: (Eq a) => a -> a -> Bool
+```
+
 * Anotaciones de tipo: estos son una forma de decir explicitamente el tipo que debe tener una expresion, se usa añadiendo :: al final de la exprecion y luego especificando el tipo. Ejemplo:
 
 ```bash
