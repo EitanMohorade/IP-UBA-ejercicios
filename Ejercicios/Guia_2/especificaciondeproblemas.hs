@@ -18,10 +18,15 @@
  requiere: {True}
  asegura: {resultado es el doble de x}
  }
+x=2
+ 4
+
  b) problema raizCuadrada (x: Z) : R {
  requiere: {x es positivo}
  asegura: {resultado es la ra´ız cuadrada de x}
  }
+ x=4
+ 2
  c) problema enteroMasCercanoPositivo (x: R) : Z {
  requiere: {True}
  asegura: {resultado es el entero m´as cercano de x}
@@ -36,6 +41,9 @@
  asegura: {El orden de la secuencia resultado es el mismo que en la secuencia s, luego de aplicar el problema
  raizCuadrada}
  }
+ s= ⟨4, 16⟩
+ ⟨2, 4⟩
+
  e) problema raicesCuadradasDos (s: seq⟨Z⟩) : seq⟨R⟩ {
  requiere: {Todos los elementos de s son positivos}
  requiere: {No hay elementos repetidos en s}
@@ -43,6 +51,8 @@
  asegura: {Los elementos de resultado son la salida de aplicar el problema raizCuadrada a todos los elementos de la
  secuencia s}
  }
+s=⟨4, 16⟩
+⟨2, 4⟩
 
 f) problema raicesCuadradasTres (s: seq⟨Z⟩) : seq⟨R⟩ {
  requiere: {Todos los elementos de s son positivos}
@@ -51,6 +61,10 @@ f) problema raicesCuadradasTres (s: seq⟨Z⟩) : seq⟨R⟩ {
  asegura: {Los elementos de resultado son la salida de aplicar el problema raizCuadrada a uno o varios elementos de
  la secuencia s}
  }
+ s=⟨4, 16, 25⟩
+
+ ⟨2, 16, 5⟩
+
  g) problema raicesCuadradasCuatro (s: seq⟨Z⟩) : seq⟨R⟩ {
  requiere: {Existen elementos de s que son positivos}
  requiere: {No hay elementos repetidos en s}
@@ -74,8 +88,12 @@ f) problema raicesCuadradasTres (s: seq⟨Z⟩) : seq⟨R⟩ {
  A partir de las especificaciones del Ejercicio 1, responder las siguientes preguntas:
  1. En los problemas raicesCuadradas que utilizan el problema raizCuadrada, ¿Se puede eliminar el requiere “Todos los
  elementos de s son positivos”? Justificar.
+ no, porque la salida debe ser Real, si fuese x negativo daria imaginario
+
  2. ¿Qu´e consecuencia tiene en el resultado la diferencia de asegura entre los problemas raicesCuadradasUno y raicesCuadra
 dasDos? Buscar un ejemplo de valor de entrada donde cada problema tenga distinto valor de salida.
+uno se ordena los elementos y el otro no, por lo que es impredecible el orden del otro
+
  3. De acuerdo con la respuesta del´ıtem anterior, ¿un algoritmo que satisface la especificaci´on de raicesCuadradasUno, tambi´en
  satisface la especificaci´on de raicesCuadradasDos? ¿y al rev´es?
  4. Explicar en palabras las diferencias entre los problemas raicesCuadradasCinco y raicesCuadradasSeis. ¿C´omo influye el
@@ -113,11 +131,13 @@ Dada la siguiente especificaci´on del problema de ordenar una secuencia de ente
  Se desea especificar el problema de reemplazar cada elemento de una secuencia de enteros por su doble y se cuenta
  con la siguiente especificaci´on:
  problema duplicarTodos (s: seq⟨Z⟩) : seq⟨Z⟩ {
- requiere: {True}
- asegura: {resultado tiene la misma cantidad de elementos que s}
+    requiere: {True}
+    asegura: {resultado tiene la misma cantidad de elementos que s}
  }
  a) ¿Qu´e problemas tiene la especificaci´on dada? Dar ejemplos de valores para resultado que satisfagan la especificaci´on pero no
  sean respuestas correctas.
+ el problema viene en que no se asegura lo que se pide hacer (duplicar elementos).
+ ej: s=⟨2, 5⟩, cumple que son Z asi que ahora se asegura que el resultado tenga la misma longitud, asi que un resultado posible es ⟨2, 5⟩, lo cual no es lo pedido inicialmente
  b) Indicar cu´al/es de los siguientes asegura deber´ıa/n ser agregado/s a la especificaci´on. Justificar en cada caso por qu´e deber´ıan
  o no ser agregados.
  asegura: {Para cada valor x que pertenece a s, hay alg´un valor en resultado que es la salida de duplicar(x)}
@@ -125,7 +145,12 @@ Dada la siguiente especificaci´on del problema de ordenar una secuencia de ente
  asegura: {En cada posici´on de resultado, el valor es igual a la salida de aplicar duplicar al valor en esa misma posici´on
  de s}
  asegura: {Todos los elementos de resultado son n´umeros pares}
- Nota: el problema duplicar(x) est´a especificado en el Ejercicio 1.
+ Nota: el problema duplicar(x) duplica realmente el valor.
+
+resultado=  asegura: {En cada posici´on de resultado, el valor es igual a la salida de aplicar duplicar al valor en esa misma posici´on
+ de s}
+ ya que realmente duplica cada elemento.
+
 
  Ejercicio 5.
  
@@ -185,8 +210,12 @@ diantes y las calificaciones en sus cursadas. Esta estructura es una secuencia d
  asegura: {resultado est´a ordenada de manera creciente}
  }
  a) Si contamos con un algoritmo P que satisface pares1, ¿satisface P la especificaci´on pares2? Justificar.
+ no, ya que contiene mas aseguras que pares2, por lo que queda con un rango de posibilidades mas grandes
  b) Si contamos con un algoritmo P que satisface pares2, ¿satisface P la especificaci´on pares1? Justificar.
+ si, ya que al tener los mismos aseguras que pares1, sabemos que satisfacerá, aunque no sea igual a pares1, lo pedido
  c) ¿Cu´al es la relaci´on de fuerza entre la postcondici´on de pares1 y la de pares2?
+
+ pares2->pares1
 
 
 Ejercicio 8.
