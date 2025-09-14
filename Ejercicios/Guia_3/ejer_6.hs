@@ -13,3 +13,9 @@ bisiesto 1900 ⇝ False
 bisiesto 1904 ⇝ True
 bisiesto 2000 ⇝ True
 -}
+type Anio = Integer
+type EsBisiesto = Bool
+
+bisiesto :: Anio -> EsBisiesto
+bisiesto n  | mod n 4 == 0 || (mod n 100 == 0 && mod n 400 /= 0)= True
+            | otherwise = False
