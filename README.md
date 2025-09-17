@@ -13,10 +13,35 @@ Ahí vas a encontrar el comando que tenés que copiar y pegar en la terminal par
 ## Uso básico
 
 - Los archivos de Haskell tienen extensión **`.hs`**  
-- Para abrir un archivo en el intérprete:  
-
-```bash
+    
+```bash 
+-- Para abrir el intérprete
 ghci
+
+-- Para cargar un archivo
 :l nombreArchivo.hs
+
+-- Para recargar el archivo después de guardar cambios
+:r
+
+-- Para salir de ghci
+:q
 ```
 
+## Ver valores de Tipos
+```bash
+-- Para ver el tipo de una expresión o función
+:t expresion
+
+-- Para ver la definición interna de un nombre (si es posible)
+:i nombre
+```
+
+## Manejo de modulos
+```bash
+-- Para importar un módulo
+import Data.List
+
+-- Para cargar varios módulos
+:l archivo1.hs archivo2.hs
+```
