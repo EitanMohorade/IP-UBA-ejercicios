@@ -6,3 +6,7 @@ Implementar la funci´on fibonacci:: Integer->Integer que devuelve el i-´esimo 
  asegura: { resultado = fib(n) }
  }
 -}
+fibonacci :: Int -> Int
+fibonacci n | n == 0 = 0
+            | n == 1 = 1
+            | otherwise = fibonacci(n-1) + fibonacci(n-2)

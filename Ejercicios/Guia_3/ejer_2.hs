@@ -9,10 +9,9 @@ Especificacion:
     asegura: {resultado es n en positivo}
  }
 -}
-{-# OPTIONS_GHC -Wno-overlapping-patterns #-}
-import Data.Fixed (mod')
 absoluto :: Integer -> Integer
-absoluto = abs
+absoluto n  | n >= 0 = n
+            | otherwise = n * (-1)
 {-
     b) maximoAbsoluto: devuelve el m´aximo entre el valor absoluto de dos n´umeros enteros.
 -}

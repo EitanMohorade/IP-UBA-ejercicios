@@ -6,3 +6,11 @@
  asegura: { resultado = true ↔ todos los d´ıgitos de n son iguales }
  }
 -}
+todosDigitosIguales :: Int -> Bool
+todosDigitosIguales n | n < 10 = True
+                      |otherwise = digitoUnidades n == digitoUnidades (div n 10) && todosDigitosIguales(div n 10)
+
+digitoUnidades :: Int -> Int
+digitoUnidades n = mod n 10
+
+

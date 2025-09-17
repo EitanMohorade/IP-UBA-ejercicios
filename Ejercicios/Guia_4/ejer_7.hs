@@ -13,3 +13,12 @@ problema cantDigitos (n: Z) : N {
  }
 
 -}
+iesimoDigito :: Int -> Int -> Int
+iesimoDigito n i | cantidadDeDigitos n == i = digitoUnidades n
+                 | otherwise = iesimoDigito(div n 10) i
+
+digitoUnidades :: Int -> Int
+digitoUnidades n = mod n 10
+cantidadDeDigitos :: Int -> Int
+cantidadDeDigitos n | n < 10 = 1
+                    | otherwise = cantidadDeDigitos(div n 10) + 1

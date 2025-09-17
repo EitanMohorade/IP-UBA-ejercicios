@@ -16,3 +16,6 @@ medioFact 0
 9 ∗7∗5∗3∗1 945.
  1  
 -}
+medioFactorial :: Int -> Int
+medioFactorial n | n <= 1 =1
+                 | otherwise = n * medioFactorial(n-2)
