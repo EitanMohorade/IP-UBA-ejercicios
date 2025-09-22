@@ -18,3 +18,17 @@
  raizDe2Aprox 2 ⇝ 1,5
  raizDe2Aprox 3 ⇝ 1,4
 -}
+
+{-especificacion
+problema raizDe2Aprox(n:Z) R {
+    requiere:{n > 0}
+    asegura:{resultado devuelve la aproximacion de raiz de dos definida por raiz de dos casi igual a la sucesion-1}
+}
+-}
+
+raizDe2Aprox :: Int -> Float
+raizDe2Aprox n = (sucesion n)-1
+
+sucesion :: Int -> Float
+sucesion n | n == 1 = 2
+           | otherwise = 2 + (1 / sucesion (n-1) )
