@@ -21,3 +21,19 @@
  Sugerencia: Implementar las funciones auxiliares elNombre y elTelefono para que dado un Contacto devuelva el dato
  del nombre y el tel´efono respectivamente
 -}
+
+type Texto = [Char]
+type Nombre = Texto
+type Telefono = Texto
+type Contacto = (Nombre, Telefono)
+type ContactosTel = [Contacto]
+
+enLosContactos :: Nombre -> ContactosTel -> Bool
+enLosContactos _ [] = False
+enLosContactos n ((x, y):xs) | n == x = True
+                             | otherwise = enLosContactos n xs
+
+agregarContacto :: Contacto -> ContactosTel -> ContactosTel
+agregarContacto (n, t) [] = [(n,t)]
+agregarContacto (n, t) ((x, y) : xs) |  n == x = ((x,t) : xs)
+                                     | otherwise = (x,y) : agregarContacto (n,t) xs

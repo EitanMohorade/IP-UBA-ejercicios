@@ -6,12 +6,20 @@ Definir las siguientes funciones sobre listas:
  asegura: { resultado = true ↔ e ∈ s }
  }
  -}
+pertenece :: (Eq t) =>t -> [t] -> Bool
+pertenece _ [] = False
+pertenece e (x:xs) | e == x = True
+                   | otherwise = pertenece e xs
 
  {-
  2. todosIguales :: (Eq t) => [t]-> Bool, que dada una lista devuelve verdadero s´ı y solamente s´ı todos sus ele
 mentos son iguales.
  -}
-
+todosIguales :: (Eq t) => [t] -> Bool 
+todosIguales [] = True
+todosIguales [x] = True
+todosIguales (x : y :xs) | x == y = todosIguales (y:xs)
+                      | otherwise = False
 
  {-
  3. todosDistintos :: (Eq t) => [t]-> Bool seg´un la siguiente especificaci´on:
@@ -20,7 +28,10 @@ mentos son iguales.
  asegura: { resultado = false ↔ existen dos posiciones distintas de s con igual valor }
  }
  -}
-
+todosDistintos :: ( Eq t) => [t] -> Bool 
+todosDistintos [x] = True
+todosDistintos (x:xs) | (pertenece x xs) = False
+                      | otherwise = todosDistintos xs 
 
  {-
  4. hayRepetidos :: (Eq t) => [t]-> Bool seg´un la siguiente especificaci´on:
@@ -34,7 +45,10 @@ mentos son iguales.
 5. quitar :: (Eq t) => t-> [t]-> [t], que dados un entero x y una lista xs, elimina la primera aparici´on de x en
  la lista xs (de haberla).
  -}
-
+quitar :: (Eq t, Ord t) => t -> [t] -> [t] 
+quitar _ [] = []
+quitar i (x:xs) | i == x = xs
+                | otherwise = x : quitar i xs
 
  {-
  6. quitarTodos :: (Eq t ) => t-> [t]-> [t], que dados un entero x y una lista xs, elimina todas las apariciones

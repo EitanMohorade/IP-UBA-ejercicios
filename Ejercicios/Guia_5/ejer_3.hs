@@ -24,7 +24,10 @@
  asegura: { resultado ∈ s ∧ todo elemento de s es menor o igual a resultado }
  }
 -}
-
+maximo :: (Ord t, Eq t) => [t] -> t
+maximo [x] = x
+maximo (x:xs) | x > maximo xs = x
+              | otherwise = maximo xs
 {-
  4. sumarN :: Integer-> [Integer]-> [Integer] seg´un la siguiente especificaci´on:
  problema sumarN (n: Z, s: seq⟨Z⟩) : seq⟨Z⟩ {
@@ -65,6 +68,18 @@
 {-
  8. multiplosDeN :: Integer-> [Integer]-> [Integer] que dado un n´umero n y una lista xs, devuelve una lista
  con los elementos de xs m´ultiplos de n.
+-}
+{-
  9. ordenar :: [Integer]-> [Integer] que ordena los elementos de la lista en forma creciente. Sugerencia: Pensar
  c´omo pueden usar la funci´on m´aximo para que ayude a generar la lista ordenada necesaria.
 -}
+ordenar :: (Eq t, Ord t) => [t] -> [t]
+ordenar [] = []
+ordenar (x:xs) | x == maximo xs = (ordenar xs) ++ [x]
+               | x > minimo xs = (ordenar xs) --INCOMPLETO  
+               |otherwise = (x:xs)
+--auxiliar
+minimo :: (Eq t,Ord t) => [t] -> t
+minimo [x]=x
+minimo (x:xs) | x < minimo xs = x
+              | otherwise = minimo xs
