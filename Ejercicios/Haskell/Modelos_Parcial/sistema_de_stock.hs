@@ -1,3 +1,5 @@
+import Control.Concurrent (yield)
+import Data.Fixed (E0)
 {-
 Una reconocida empresa de comercio electr´onico nos pide desarrollar un sistema de stock de mercader´ıa. La mercader´ıa de
  la empresa va a ser representada como una secuencia de nombres de los productos, donde puede haber productos repetidos.
@@ -113,3 +115,12 @@ modificarPrecio2 :: Nombre -> Precios -> (Nombre, Precio) --modifica el precio y
 modificarPrecio2 n1 ((n2,p):ys) | n1 == n2 = (n2, (p*0.80)) 
                                 | otherwise = modificarPrecio2 n1 ys
 --
+
+sacarRepetidos :: (Eq t) => [t] -> [t]
+sacarRepetidos [] = []
+sacarRepetidos (x:xs) = x : sacarRepetidos (sacarUnoRepetido xs x)
+
+sacarUnoRepetido :: (Eq t) => [t] -> t ->[t]
+sacarUnoRepetido [] _ = []
+sacarUnoRepetido (x:xs) y | x == y = sacarUnoRepetido xs y
+                          | otherwise = x:sacarUnoRepetido xs y
