@@ -36,3 +36,4 @@ def cantidad_de_pizzas(comensales: int , min_cant_porciones: int ) -> int: #cada
     while (pizza < total_porciones):
         pizza += 8
     return pizza/8
+print(cantidad_de_pizzas(4,11))
