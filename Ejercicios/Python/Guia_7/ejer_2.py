@@ -19,29 +19,47 @@ def ceros_en_posiciones_pares_V2(s:list[int])->list[int]:
     return ceros_en_posiciones_pares(copia)
 # 3. sin_vocales(s):
 #    devuelve una cadena igual a s pero sin las vocales ('a', 'e', 'i', 'o', 'u').
-def sin_vocales(s:list[int])->list[int]:
-    for i in range(0,len(s)):
-        if(pertenece(s[i],vocales)):
-            s.remove[i]
+def pertenece(e:str,s:list[str])->bool:
+    res: int = 0
+    for i in s:
+        if(i == e):
+            res = 1
+    return res == 1
+vocales: list[str]=['a', 'e', 'i', 'o', 'u']
+def sin_vocales(s:list[str])->list[str]:
+    global vocales
+    res:list[str]=[]
+    for i in s:
+        if(not pertenece(i,vocales)):
+            res.append(i)
+    return res
+
 # 4. reemplaza_vocales(s):
 #    devuelve una cadena donde las vocales fueron reemplazadas por un espacio ' '.
 def reemplazar_vocales(s:list[str])->list[str]:
-    for i in range(0,len(s)):
-        if(pertenece(s[i], vocales)):
-            s.append["-"]
-            s.remove[i+1]
+    global vocales
+    res:list[str]=[]
+    for i in s:
+        if(pertenece(i, vocales)):
+            res.append("-")
+        else:
+            res.append(i)
+    return res
+
 # 5. da_vuelta_str(s):
 #    devuelve la cadena invertida.
 def dar_vuelta_una_palabra(palabra:str)->str:
     res:str=""
-    for letra in palabra:
-        res += letra
+    for i in range(len(palabra),0,-1):
+        res += palabra[i-1]
     return res
 
 def da_vuelta_str(s:list[str])-> list[str]:
-    for i in range(0,len(s)):
-        s.remove[i]
-        s.append[dar_vuelta_una_palabra(s[i])]
+    res:list[str]=[]
+    for i in s:
+        res.append(dar_vuelta_una_palabra(i))
+    return res
+print(da_vuelta_str(["hola","aloh","saludos","uno"]))
 # 6. eliminar_repetidos(s):
 #    devuelve una cadena con los mismos caracteres que s, pero sin repetir ninguno.
 def eliminar_x_elemento(p:str, s:list[str]):
