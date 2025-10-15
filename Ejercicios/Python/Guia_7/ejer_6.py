@@ -5,13 +5,30 @@
 #
 # 1. es_matriz(s):
 #    devuelve True si s es una lista no vacía y todas las filas tienen la misma longitud.
-#
+def es_matriz(s:list[list[int]])->bool:
+    res:int=0
+    if(len(s)>0):
+        res = len(s[0])
+        for i in s:
+            if(len(i) != res):
+                res=0
+    return res != 0
 # 2. filas_ordenadas(m):
 #    devuelve una lista de booleanos indicando si cada fila está ordenada.
-#
+def filas_ordenadas(s:list[list[int]])-> None:
+    res: list[bool]=[]
+    for i in s:
+        if(ordenadas(i)):
+            res.append[True]
+        else:
+            res.append[False]
 # 3. columna(m, c):
 #    devuelve una lista con los elementos de la columna c.
-#
+def columna(m:list[list[int]], c:int)->list[int]:
+    res:list[int]=[]
+    for i in m:
+        res.append[i[c]]
+    return res
 # 4. columnas_ordenadas(m):
 #    devuelve una lista de booleanos indicando si cada columna está ordenada.
 #
