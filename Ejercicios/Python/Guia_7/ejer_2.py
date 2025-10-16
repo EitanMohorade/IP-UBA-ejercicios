@@ -63,13 +63,14 @@ print(da_vuelta_str(["hola","aloh","saludos","uno"]))
 # 6. eliminar_repetidos(s):
 #    devuelve una cadena con los mismos caracteres que s, pero sin repetir ninguno.
 def eliminar_x_elemento(p:str, s:list[str]):
-    for i in range(0,len(s)):
-        if(s[i]==p):
-            s.remove[i]
+    for i in s:
+        if(i==p):
+            s.remove(i)
 
 def eliminar_repetidos(s:list[str])->list[str]:
     res:list[str]=[]
     for i in s:
         eliminar_x_elemento(i,s)
-        res.append[i]
+        res.append(i)
     return res
+print(eliminar_repetidos(["h","h","d","c","d","c"]))

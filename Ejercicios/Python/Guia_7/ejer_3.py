@@ -19,7 +19,7 @@ def todas_aprobadas(notas:list[int])->bool:
     res:int=len(notas)
     for i in notas:
         if(i<4):
-            notas.remove[i]
+            notas.remove(i)
     return res == len(notas)
 
 def resultado_materia(notas:list[int])->int:
