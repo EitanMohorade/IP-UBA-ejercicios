@@ -1,0 +1,8 @@
+{
+    "editor.experimental.asyncTokenizationLogging": false,
+    "workbench.panel.defaultLocation": "bottom",
+    "debugpy.showPythonInlineValues": false,
+    "debug.allowBreakpointsEverywhere": false,
+    "debug.hideLauncherWhileDebugging": false,
+    "debug.openExplorerOnEnd": false
+}

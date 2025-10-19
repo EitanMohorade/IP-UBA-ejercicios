@@ -53,7 +53,7 @@ def columna_ordenadas(m:list[list[int]])->list[bool]:
             res.append(False)
     return res
         
-print(columna_ordenadas([[1,3,4],[3,5,5],[7,4,10]]))
+#print(columna_ordenadas([[1,3,4],[3,5,5],[7,4,10]]))
 
 # 5. transponer(m):
 #    devuelve la matriz transpuesta de m (intercambia filas y columnas).
@@ -107,9 +107,13 @@ def ganador_por_cruz_2(m:list[list[str]],e:str)->bool:
 #print(ganador_por_cruz_2([["O","O","X"],["O","X","O"],["X","X","O"]],"X"))
 
 def quien_gana_tateti(m:list[list[str]])->int:
-    if (tiene_iguales(trasponer(m))):
-        return 2
-
+    res:int=2
+    if (ganador_por_linea(m, "X") or ganador_por_cruz_1(m, "X") or ganador_por_cruz_2(m, "X")):
+        res = 1
+    elif(ganador_por_linea(m, "O") or ganador_por_cruz_1(m, "O") or ganador_por_cruz_2(m, "O")):
+        res = 0
+    return res
+#print(quien_gana_tateti([["O","O","X"],["O"," ","O"],[" ","X","O"]]))
 # 7. (Opcional) exponenciacion_matriz(d, p):
 #    genera una matriz cuadrada aleatoria de dimensión d
 #    y la eleva a la potencia p multiplicándola por sí misma p veces.
