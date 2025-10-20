@@ -23,7 +23,12 @@ def clon_cola(c:Cola[int])->Cola[int]:
 def intercalar(c1: Cola[int], c2: Cola[int])-> Cola[int]:
     clon1: Cola[int]= clon_cola(c1)
     clon2: Cola[int]= clon_cola(c2)
-
+    res: Cola[int]= Cola()
+    while(not clon1.empty() and not clon2.empty()):
+        
+        res.put(clon1.get())
+        res.put(clon2.get())
+    return res
 
 c1:Cola[int]=Cola()
 c1.put(0)
