@@ -39,40 +39,51 @@ def clon_pila (p:Pila[str])->Pila[str]:
         p.put(e)
     return clon
 
-def evaluar_expresion(s:str)-> int:
-    p:Pila[int]=Pila()
+def pasar_a_pila(e:str)->Pila[str]:
+    res:Pila[str]=Pila()
+    for i in range(len(e)-1, -1,-1):
+        res.put(e[i])
+    return res
+
+def evaluar_una_expresion(p:Pila[str]):
+    expresion:Pila[str]=Pila()
     simbolos: list[str] = ['+', '-', '*', '/']
-    for e in s:
-        if (e != ' ' and (not pertenece(e, simbolos))):
-            p.put(int(e))
-        elif(pertenece(e, simbolos)):
-            clon:Pila[str]= clon_pila(p)
-            while(not clon.empty()):
-                if (e == '+'):
-                    p.put(clon.get() + clon.get())
-                elif (e == '-'):
-                    p.put(clon.get() - clon.get())
-                elif (e == '*'):
-                    p.put(clon.get() * clon.get())
-                elif (e == '/'): 
-                    p.put(clon.get() / clon.get())
-    return p.get()
+    count: int = 0
+    while (count == 0):
+        valor:str=p.get()
+        if (valor != ' ' and (not pertenece(valor, simbolos))):
+            expresion.put(valor)
+        elif(pertenece(valor, simbolos)):
+            expresion.put(valor)
+            count = 1
+    while(not expresion.empty()):
+        valor:str=expresion.get()
+        if (valor == '+'):
+            p.put( int(expresion.get()) + int(expresion.get()) )
+        elif (valor == '-'):
+            p.put( int(expresion.get()) - int(expresion.get()))
+        elif (valor == '*'):
+            p.put( int(expresion.get()) * int(expresion.get()))
+        elif (valor == '/'): 
+            p.put( int(expresion.get()) / int(expresion.get()))
+    #print(p.get())
+def cant_expresiones(s:str)->int:
+    simbolos: list[str] = ['+', '-', '*', '/']
+    res: int=0
+    for l in s:
+        if(pertenece(l, simbolos)):
+            res += 1 
+    return res
+def evaluar_expresion(s:str) -> float:
+    expresion:Pila[str]=pasar_a_pila(s)
+    limite:int=cant_expresiones(s)
+    count:int = 0
+    while count < limite:
+        count += 1
+        evaluar_una_expresion(expresion)
+    return expresion.get()
+expresion = "3 4 + 5 * 2 - 3 -"
 
-expresion = "3 4 + 5 * 2 -"
+var = pasar_a_pila(expresion)
 
-#resultado = evaluar_expresion(expresion)
-#print(resultado) 
-
-# p: Pila[int] = Pila()
-# p.put(1)
-# p.put(3)
-# p.put(6)
-# p.put(int("4"))
-# p.put(p.get() + p.get())
-# print(p.get())
-var:list[int]=[]
-for e in "213":
-    var.append(int(e))
-print(var)
-
-FALTA AHSVCER SAAOFS AS,SA,F
+print(evaluar_expresion(expresion))

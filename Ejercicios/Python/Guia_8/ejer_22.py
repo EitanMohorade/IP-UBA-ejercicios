@@ -11,3 +11,14 @@
 #       texto válido # esto se conserva
 #   Salida:
 #       texto válido # esto se conserva
+def clonar_sin_comentarios(nom_archivo_entrada:str, nom_archivo_salida:str): 
+    archivo_e=open(nom_archivo_entrada, "r")
+    archivo_s=open(nom_archivo_salida,"w")
+    for i in archivo_e:
+        if(i[0] != "#"):
+            archivo_s.write(i)
+    archivo_e.close()
+    archivo_s.close()
+
+
+print(clonar_sin_comentarios("Ejercicios\Python\Guia_8\ejer_22.txt","Ejercicios\Python\Guia_8\ejer_22_clon.txt"))
