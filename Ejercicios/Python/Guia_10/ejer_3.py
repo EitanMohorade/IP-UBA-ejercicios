@@ -12,3 +12,6 @@
 #  elementos ”perro” o ”gato”.}
 #  asegura: {Si hay m´as de una subsecuencia de tama˜no m´aximo, res tiene el ´ındice de la primera.}
 #  }
+
+def subsecuencia_mas_larga(tipos_pacientes_atendidos: str)-> int:
+    return 12

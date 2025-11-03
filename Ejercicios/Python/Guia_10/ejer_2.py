@@ -15,3 +15,47 @@
 #  asegura: {Todos los elementos de codigos barra cuyos ´ultimos 3 d´ıgitos forman un n´umero primo est´an en res.}
 #  asegura: {Todos los elementos de res est´an en codigos barra.}
 #  }
+from math import floor
+def cant_digitos(numero:int)-> int:
+    res:int=0
+    aux: int = numero
+    while(aux > 1):
+        aux = aux/10
+        res += 1
+    return res 
+
+def sumar_primeros_3_digitos (numero: int) -> int:
+    res: int = 0
+    digitos:int = cant_digitos(numero)
+    aux:int = numero
+    
+    if(digitos >= 3):
+        for _ in range(3):
+            res += aux%10
+            aux = floor(aux/10)
+    else:
+        for _ in range(digitos):
+            res += aux%10
+            aux = floor(aux/10)
+    return res
+
+
+
+def es_primo(numero: int) -> bool:
+    res: int = 1
+    for i in range(2, numero):
+        if numero%i == 0:
+            res = 0
+    return res == 1
+
+def codigos_primos (codigos_barra: list[int]) -> list[int]:
+    lista_con_primos: list[int] = []
+    for codigo in codigos_barra:
+        primeros_3_digitos: int = sumar_primeros_3_digitos(codigo) 
+        if es_primo(primeros_3_digitos):
+            lista_con_primos.append(codigo)
+    return lista_con_primos
+
+codigos_barra: list[int] = [241124251,12512521,4364373445,21412521,124,215,2,5,92]
+
+print(codigos_primos(codigos_barra))

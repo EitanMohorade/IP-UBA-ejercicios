@@ -14,3 +14,38 @@
 #  asegura: {El valor en res de un producto es una tupla de cantidades. Su primer elemento es la menor cantidad de ese
 #  producto en stock cambios y como segundo valor el mayor.}
 #  }
+def pertenece_en_diccionario(diccionario: dict[str, tuple[int, int]], producto: tuple[str, int]) -> bool:
+    res: int = 0
+    for productos in diccionario.keys():
+        if productos == producto[0]:
+            res = 1
+    return res == 1
+
+def minimo_stock_de(stock_cambios: list[tuple[str, int]], producto: tuple[str, int]) -> int:
+    minimo: int = producto[1]
+    for stock in stock_cambios:
+        if stock[0] == producto[0]:
+            if stock[1] < minimo:
+                minimo = stock[1]
+    return minimo
+
+def maximo_stock_de(stock_cambios: list[tuple[str, int]], producto: tuple[str, int]) -> int:
+    maximo: int = producto[1]
+    for stock in stock_cambios:
+        if stock[0] == producto[0]:
+            if stock[1] > maximo:
+                maximo = stock[1]
+    return maximo
+
+def stock_productos(stock_cambios: list[tuple[str, int]]) -> dict[str, tuple[int, int]]:
+    diccionario: dict[str, tuple[int, int]] = {}
+    for stock in stock_cambios:
+        if not pertenece_en_diccionario(diccionario, stock):
+            diccionario[stock[0]] = (minimo_stock_de(stock_cambios, stock), maximo_stock_de(stock_cambios, stock))
+    return diccionario
+
+stock_cambios: list[tuple[str, int]] = [("calzones", 23),("calzones", 23),("medias", 5),("medias", 23),("calzones", 13),("medias", 55),("calzones", 1)]
+
+resultado: dict[str, tuple[int, int]] = stock_productos(stock_cambios)
+
+print(resultado)
