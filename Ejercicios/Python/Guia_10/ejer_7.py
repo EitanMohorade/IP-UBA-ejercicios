@@ -1,0 +1,20 @@
+# Ejercicio 7. Sala de Escape- Racha m´as larga
+#  Dada una lista con los tiempos (en minutos) registrados para cada sala de escape a la que fue una persona, escribir una
+#  funci´on en Python que devuelva una tupla con el ´ındice de inicio y el ´ındice de fin de la subsecuencia m´as larga de salidas
+#  exitosas de salas de escape consecutivas.
+#  problema racha
+#  mas
+#  larga (in tiempos: seq⟨Z⟩) : <Z×Z> {
+#  requiere: {Hay por lo menos un elemento en tiempos entre 1 y 60 inclusive.}
+#  requiere: {Todos los tiempos en tiempos est´an entre 0 y 61 inclusive.}
+#  asegura: {En la primera posici´on de res est´a la posici´on (´ındice de la lista) de la sala que inicia la racha m´as larga.}
+#  asegura: {En la segunda posici´on de res est´a la posici´on (´ındice de la lista) de la sala que finaliza la racha m´as larga.}
+#  asegura: {El elemento de la primer posici´on de res en tiempos es mayor estricto 0 y menor estricto que 61.}
+#  asegura: {El elemento de la segunda posici´on de res en tiempos es mayor estricto 0 y menor estricto que 61.}
+#  asegura: {La primera posici´on de res es menor o igual a la segunda posici´on de res.}
+#  asegura: {No hay valores iguales a 0 o a 61 en tiempos entre la primer posici´on de res y la segunda posici´on de res.}
+#  asegura: {No hay otra subsecuencia de salidas exitosas, en tiempos, de mayor longitud que la que est´a entre la primer
+#  posici´on de res y la segunda posici´on de res.}
+#  asegura: {Si hay dos o m´as subsecuencias de salidas exitosas de mayor longitud en tiempos, res debe contener la primera
+#  de ellas.}
+#  }
