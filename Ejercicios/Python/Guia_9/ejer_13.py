@@ -18,5 +18,13 @@ def vaciarSecuencia(s: list[int]):
 # Preguntas:
 # 1. Escribir el grafo de control de flujo.
 # 2. Escribir un test suite que cubra todas las líneas.
+# def test_3_elementos():
+#     s = [5, -3, 10]
+#     vaciarSecuencia(s)
+#     assert s == [0, 0, 0]
 # 3. Extenderlo para cubrir todos los branches.
+# def test_0_elementos():
+#     s = []
+#     vaciarSecuencia(s)
+#     assert s == []
 

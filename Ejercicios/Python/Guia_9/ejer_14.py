@@ -25,5 +25,17 @@ def existeElemento(s: list[int], e: int) -> bool:
 
 # Preguntas:
 # 1. Escribir el grafo de control de flujo.
-# 2. Escribir un test suite que cubra todas las líneas.
+# # 2. Escribir un test suite que cubra todas las líneas.
+
+# def test_elemento_presente():
+#     s = [1, 2, 3, 4, 5]
+#     e = 3
+#     assert existeElemento(s, e) == True
+
+
 # 3. Extenderlo para cubrir todos los branches.
+
+# def test_elemento_ausente():
+#     s = [1, 2, 3, 4, 5]
+#     e = 6
+#     assert existeElemento(s, e) == False

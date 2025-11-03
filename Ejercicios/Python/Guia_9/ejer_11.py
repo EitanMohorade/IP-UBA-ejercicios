@@ -34,3 +34,17 @@ def triangle(a: int, b: int, c: int) -> int:
 # Preguntas:
 # 1. Describir el grafo de control de flujo.
 # 2. Escribir un test suite que ejecute todas las líneas y branches.
+    # def test_triangle_equilatero():
+    #     assert triangle(3, 3, 3) == 1
+
+    # def test_triangle_isosceles():
+    #     assert triangle(3, 3, 2) == 2
+
+    # def test_triangle_escaleno():
+    #     assert triangle(3, 4, 5) == 3
+
+    # def test_triangle_invalido_negativo():
+    #     assert triangle(-1, 2, 3) == 4
+
+    # def test_triangle_invalido_suma():
+    #     assert triangle(1, 2, 3) == 4

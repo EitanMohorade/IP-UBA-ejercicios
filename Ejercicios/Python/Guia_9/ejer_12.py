@@ -33,5 +33,26 @@ def multByAbs(x: int, y: int) -> int:
 # Preguntas:
 # 1. Describir el grafo de control de flujo.
 # 2. Detallar qué líneas o branches no pueden ser cubiertos y por qué.
+
+# la línea L3 no puede ser cubierta porque fabs_int siempre devuelve un valor >=0
+
 # 3. Escribir un test suite que cubra todas las líneas y branches posibles.
+
+# def test_x_positivo_y_positivo():
+#     assert multByAbs(3, 4) == 12
+
+# def test_x_positivo_y_cero():
+#     assert multByAbs(5, 0) == 0
+
+# def test_x_positivo_y_negativo():
+#     assert multByAbs(2, -3) == 6
+
+# def test_x_negativo_y_positivo():
+#     assert multByAbs(-3, 4) == -12
+
+# def test_x_negativo_y_cero():
+#     assert multByAbs(-5, 0) == 0
+
+# def test_x_negativo_y_negativo():
+#     assert multByAbs(-2, -3) == -6
 
